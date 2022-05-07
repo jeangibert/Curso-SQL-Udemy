@@ -1,0 +1,6 @@
+Voy a implementar mi base de datos fisica de armario de ropa , recuerdo al idea:
+"Ropa(IdRopa,Talle,Tipo,Descripcion)
+Limpieza(IdRopa,Fecha_lavado)
+Ubicacion(IdRopa,NumeroCajon)
+"
+

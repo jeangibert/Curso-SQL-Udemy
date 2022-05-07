@@ -1,0 +1,5 @@
+La base de datos que diseñe fue la del almacenamiento de ropa en un mueble de mi cuarto , la cual esta dividida por secciones en base al tipo de vestimenta y con la informacion de cuando fue lavada por ultima vez para generar un recordatorio de la limpieza.
+Las tablas serian las siguientes ,la que tienen # serian las claves primarias:
+Cajonera(#Id_Ropa,NombreDePrenda,Talle,Tipo)
+Limpieza(#Id_Ropa,NombreDePrenda,Fecha_lavado)
+Ubicacion(#Id_Ropa,NombreDePrenda,NumeroCajon)

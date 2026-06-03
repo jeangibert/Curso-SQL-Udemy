@@ -1,7 +1,7 @@
 
 -- Trigger inserccion reserva
 DELIMITER $$
-CREATE TRIGGER InserccionReservas
+CREATE TRIGGER AgregarReservaInserccionReservasInserccionReservas
 BEFORE INSERT on hoteldb.reservas
 FOR each row
 begin

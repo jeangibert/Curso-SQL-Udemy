@@ -1,5 +1,5 @@
 delimiter $$
-CREATE PROCEDURE AgregarCliente(
+CREATE PROCEDURE InserccionClientes(
 IN _nombre varchar(45) , IN _apellido varchar(45),IN _email varchar(45), IN _dni varchar(45)
 )
 BEGIN
@@ -22,8 +22,6 @@ SELECT "ERROR: Todos los campos deben tener contenido" AS Mensaje;
 End IF;
 
 
-
-
 INSERT INTO clientes (nombre,apellido,email,dni) VALUES (_nombre,_apellido,_email,_dni);
 COMMIT;
 
@@ -31,13 +29,13 @@ END $$
 DELIMITER ;
 
 -- Testing
-CALL AgregarCliente("Jean","Gibert","jean@gmail.com","11111");
-CALL AgregarCliente("Jean","Gibert","jean@gmail.com","11111"); -- Pruebo si ya habia un dni igual
+CALL InserccionClientes("Jean","Gibert","jean@gmail.com","11111");
+CALL InserccionClientes("Jean","Gibert","jean@gmail.com","11111"); -- Pruebo si ya habia un dni igual
 -- Pruebo nullos
-CALL AgregarCliente("","Gibert","jean@gmail.com","123");
-CALL AgregarCliente("Jean","","jean@gmail.com","11111");
-CALL AgregarCliente("Jean","Gibert","","11111");
-CALL AgregarCliente("Jean","Gibert","jean@gmail.com","");
+CALL InserccionClientes("","Gibert","jean@gmail.com","123");
+CALL InserccionClientes("Jean","","jean@gmail.com","11111");
+CALL InserccionClientes("Jean","Gibert","","11111");
+CALL InserccionClientes("Jean","Gibert","jean@gmail.com","");
 
 select * From clientes;
 

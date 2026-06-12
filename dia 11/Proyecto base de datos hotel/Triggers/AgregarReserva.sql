@@ -6,7 +6,7 @@ begin
 DECLARE superposicion INT; -- Va a servir para chequear que no se superpongan
 
 -- Chequeo numero de habitacion valido
-IF new.habitacion_id not in (SELECT habitacion_id from habitaciones) Then
+IF new.habitacion_id not in (SELECT habitaciones_id from habitaciones) Then
 	SIGNAL SQLSTATE "45000" 
     SET MESSAGE_TEXT = "Error el numero de habitacion no existe";
 END if;

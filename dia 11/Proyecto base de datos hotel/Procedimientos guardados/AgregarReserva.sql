@@ -22,26 +22,20 @@ where habitacion_id = _habitacion_id
 and _check_in < check_out
 and _check_out > check_in;
 
-START TRANSACTION;
-SAVEPOINT PreValidacion;
-
-IF _habitacion_id not in (SELECT habitacion_id from habitaciones) Then
-	rollback to Prevalidacion;
+IF _habitacion_id not in (SELECT habitaciones_id from habitaciones) Then
 	SELECT "ERROR: La id de la habitacion no existe" AS Mensaje;
     
 ELSEIF _check_in >= _check_out then
-	rollback to Prevalidacion;
 	SELECT "ERROR: Tiempo de estadia invalido" AS Mensaje;
 
 ELSEIF superposicion > 0 then
-	rollback to Prevalidacion;
 	SELECT "ERROR: Hay superposición en las reservas" AS Mensaje;
     
-ELSEIF _cliente_id not in (SELECT id from clientes) Then
-    rollback to Prevalidacion;
+ELSEIF _cliente_id not in (SELECT cliente_id from clientes) Then
     SELECT 'ERROR: El ID del cliente no existe' AS Mensaje;
     
 ELSE
+	START TRANSACTION;
 	INSERT INTO reservas (cliente_id,habitacion_id,check_in,check_out) VALUES (
 	_cliente_id,_habitacion_id,_check_in,_check_out);    
 	COMMIT;

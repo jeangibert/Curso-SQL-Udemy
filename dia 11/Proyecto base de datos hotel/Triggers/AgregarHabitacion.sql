@@ -8,7 +8,7 @@ BEGIN
 
 IF new.capacidad is null or new.ubicacion is null or new.estado is null then
 	SIGNAL SQLSTATE "45000"
-	SET MESSAGE_TEXT = "Error: Los campos no pueden ser nullos";
+	SET MESSAGE_TEXT = "Error: Los campos no pueden ser nulos";
 
 ELSEIF new.capacidad < 1 then
 	SIGNAL SQLSTATE "45000"

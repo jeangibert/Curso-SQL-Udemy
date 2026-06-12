@@ -27,6 +27,7 @@ CREATE TABLE `clientes` (
   `nombre` varchar(255) DEFAULT NULL,
   `apellido` varchar(255) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
+  `dni` varchar(45) NOT NULL UNIQUE,
   PRIMARY KEY (`cliente_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
